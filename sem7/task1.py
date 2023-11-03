@@ -67,16 +67,16 @@ M0=1/M
 C=c*M0
 s=0
 S=0
-for i in range(n):
-    for j in range(n):
-        if j==i:
-            break
-        for k in range(n):
-            if k==j or k==i:
-                break
-            S=abs((V[j]-V[i])*(V[k]-V[i]))
-            if S>s:
-                s=S
-            S=0
+A = {0}
+if n>2:
+    for i in range(n):
+        for j in range(n):
+            for k in range(n):
+                S=abs((V[j]-V[i])*(V[k]-V[i]))
+                if S not in A:
+                    A.add(S)
+                    if S>s:
+                        s=S
+                S=0
 print(f'1.1 Центр масс: {C}')
 print(f'1.2 Треугольник с максимальной площадью: {s}')
