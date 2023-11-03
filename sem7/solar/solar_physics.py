@@ -94,14 +94,16 @@ def calculate_force(body, space_objects):
     **space_objects** — список объектов, которые воздействуют на тело.
     """
 
-    body.Fx = body.Fy = 0
+    body.Fx = 0
+    body.Fy = 0
     for obj in space_objects:
-        if body == obj:
-            body.Fx = 0.1
-            body.Fy = 0.1
-        r = randint(1, 100) / 100
-        body.Fx += -randint(1, 100) / 100
-        body.Fy += -randint(1, 100) / 100
+        if body != obj:
+            rx = body.x - obj.x
+            ry = body.y - obj.y
+            r = (rx**2 + ry**2)**0.5
+            F = gravitational_constant * obj.m * body.m / (r**2)
+            body.Fx += -F * (rx/r)
+            body.Fy += -F * (ry/r)
 
 
 def move_space_object(body, dt):
@@ -113,11 +115,11 @@ def move_space_object(body, dt):
     """
 
     ax = body.Fx/body.m
-    body.x += body.Vx*dt
     body.Vx += ax*dt
+    body.x += body.Vx*dt
     ay = body.Fy/body.m
-    body.y += body.Vy*dt
     body.Vy += ay*dt
+    body.y += body.Vy*dt
     '''zhitь ( ͡ಥ ͜ʖ ͡ಥ)'''
 
 
