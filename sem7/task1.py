@@ -69,7 +69,11 @@ s=0
 S=0
 for i in range(n):
     for j in range(n):
+        if j==i:
+            break
         for k in range(n):
+            if k==j or k==i:
+                break
             S=abs((V[j]-V[i])*(V[k]-V[i]))
             if S>s:
                 s=S
