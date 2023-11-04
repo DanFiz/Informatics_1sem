@@ -29,7 +29,9 @@ times = []
 def calculate_sectorialspeed(body,body2):
     rx=body.x-body2.x
     ry=body.y-body2.y
-    L = 0.5*(rx*body.Vy-ry*body.Vx)
+    Vx=body.Vx-body2.Vx
+    Vy=body.Vy-body2.Vy
+    L = 0.5*(rx*Vy-ry*Vx)
     return L
 def execution():
     """Функция исполнения -- выполняется циклически, вызывая обработку всех небесных тел,
@@ -171,7 +173,7 @@ if len(Ls)==0:
 z=np.polyfit(x,y,deg=1)
 y_est = z[0]*(x**1)+z[1]*(x**0)
 ax.scatter(x, y, marker='o')
-ax.plot(x,y_est, 'r', label=f'y = {round(z[0],2)}*x+{round(z[1])}')
+ax.plot(x,y_est, 'r', label=f'y = {z[0]}*x+{z[1]}')
 ax.set_xlabel('Time,t, s')
 ax.set_ylabel('Sectorial Speed, $\delta \sigma / \delta t$, $m^2$/с')
 ax.grid()
