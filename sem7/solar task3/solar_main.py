@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 from solar_visuals import *
 from solar_physics import *
 from solar_read import *
-from Vectors import *
 import numpy as np
+
 perform_execution = False
 """Флаг цикличности выполнения расчёта"""
 
@@ -29,10 +29,7 @@ times = []
 def calculate_sectorialspeed(body,body2):
     rx=body.x-body2.x
     ry=body.y-body2.y
-    Vv=Vector(body.Vx,body.Vy,0)
-    Vr=Vector(rx,ry,0)
-    L0 = 0.5*Vr*Vv
-    L = L0.z
+    L = 0.5*(rx*body.Vy-ry*body.Vx)
     return L
 def execution():
     """Функция исполнения -- выполняется циклически, вызывая обработку всех небесных тел,
@@ -174,7 +171,7 @@ if len(Ls)==0:
 z=np.polyfit(x,y,deg=1)
 y_est = z[0]*(x**1)+z[1]*(x**0)
 ax.scatter(x, y, marker='o')
-ax.plot(x,y_est, 'r', label=f'y = {round(z[0],2)}*x+{round(z[1],2)}')
+ax.plot(x,y_est, 'r', label=f'y = {round(z[0],2)}*x+{round(z[1])}')
 ax.set_xlabel('Time,t, s')
 ax.set_ylabel('Sectorial Speed, $\delta \sigma / \delta t$, $m^2$/с')
 ax.grid()
