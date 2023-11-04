@@ -7,8 +7,6 @@ from solar_physics import *
 from solar_read import *
 from Vectors import *
 import numpy as np
-
-
 perform_execution = False
 """Флаг цикличности выполнения расчёта"""
 
@@ -28,16 +26,13 @@ space_objects = []
 """Список космических объектов."""
 Ls = []
 times = []
-def calculate_momentofpulse(body, space_objects):
-    L=0
-    for obj in space_objects:
-        if body != obj:
-            rx = body.x - obj.x
-            ry = body.y - obj.y
-            Vv=Vector(body.Vx,body.Vy,0)
-            Vr=Vector(rx,ry,0)
-            L0 = body.m*Vr*Vv
-            L += L0.z
+def calculate_sectorialspeed(body,body2):
+    rx=body.x-body2.x
+    ry=body.y-body2.y
+    Vv=Vector(body.Vx,body.Vy,0)
+    Vr=Vector(rx,ry,0)
+    L0 = 0.5*Vr*Vv
+    L = L0.z
     return L
 def execution():
     """Функция исполнения -- выполняется циклически, вызывая обработку всех небесных тел,
@@ -51,7 +46,7 @@ def execution():
     recalculate_space_objects_positions(space_objects, time_step.get())
     for body in space_objects:
         update_object_position(space, body)
-    Ls.append(calculate_momentofpulse(space_objects[1], space_objects))
+    Ls.append(calculate_sectorialspeed(space_objects[1],space_objects[0]))
     times.append(physical_time)
     physical_time += time_step.get()
     displayed_time.set("%.1f" % physical_time + " seconds gone")
@@ -168,8 +163,9 @@ def main():
 
 if __name__ == "__main__":
     main()
-print('Рассчёт момента импульса для Земли')
+print(space_objects)
 fig, ax = plt.subplots( figsize=(16, 9),dpi=100)
+ax.set_title('Calculating of sectorial speed')
 x=np.array(times)
 y=np.array(Ls)
 if len(Ls)==0:
@@ -179,8 +175,8 @@ z=np.polyfit(x,y,deg=1)
 y_est = z[0]*(x**1)+z[1]*(x**0)
 ax.scatter(x, y, marker='o')
 ax.plot(x,y_est, 'r', label=f'y = {round(z[0],2)}*x+{round(z[1],2)}')
-ax.set_xlabel('Time, с')
-ax.set_ylabel('Moment of pulse, $м^2$/с*кг',rotation=0, horizontalalignment='right')
+ax.set_xlabel('Time,t, s')
+ax.set_ylabel('Sectorial Speed, $\delta \sigma / \delta t$, $m^2$/с')
 ax.grid()
 ax.legend()
 plt.show()
