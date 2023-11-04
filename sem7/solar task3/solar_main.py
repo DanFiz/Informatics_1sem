@@ -163,7 +163,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-print(space_objects)
+
 fig, ax = plt.subplots( figsize=(16, 9),dpi=100)
 ax.set_title('Calculating of sectorial speed')
 x=np.array(times)
