@@ -2,16 +2,33 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-df=pd.read_csv('iris_data.csv')
+df=pd.read_csv('BTC_data.csv')
 time=list(df['time'])
 price=list(df['close'])
+data=[]
+for i in time:
+    data.append(i[:10])
+days=[]
+k=0
+l=0
+for i in data:
+    data0= list(map(int,(i.split('-'))))
+    days.append(data0[0]*365.25+data0[1]*29.3+data0[2])
+y=price
+x=days
 fig=plt.figure(figsize=(16,9))
 ax=fig.add_subplot(111)
-ax.set_title('Manual DateFormatter', loc='left', y=0.85, x=0.02,fontsize='medium')
-x=matplotlib.dates.date2num(date)
-y=price
 
+tickp=[]
+
+plt.plot(data, y)
+for i in range(len(time)):
+    if i%92==0:
+        tickp.append(i)
+plt.xlabel('Data')
+plt.ylabel('Price')
+plt.title('Исторический график зависимости цены биткоина от времени')
+ax.set_xticks([tickp[i] for i in range(len(tickp))])
 for label in ax.get_xticklabels(which='major'):
     label.set(rotation=30, horizontalalignment='right')
-    plt.plot(x, y)
 plt.show()

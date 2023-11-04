@@ -1,9 +1,12 @@
 import tkinter
 from tkinter.filedialog import *
+import matplotlib.pyplot as plt
 # раскомментируйте три строки ниже
 from solar_visuals import *
 from solar_physics import *
 from solar_read import *
+from Vectors import *
+import numpy as np
 
 
 perform_execution = False
@@ -23,19 +26,33 @@ time_step = None
 
 space_objects = []
 """Список космических объектов."""
-
-
+Ls = []
+times = []
+def calculate_momentofpulse(body, space_objects):
+    L=0
+    for obj in space_objects:
+        if body != obj:
+            rx = body.x - obj.x
+            ry = body.y - obj.y
+            Vv=Vector(body.Vx,body.Vy,0)
+            Vr=Vector(rx,ry,0)
+            L0 = body.m*Vr*Vv
+            L += L0.z
+    return L
 def execution():
     """Функция исполнения -- выполняется циклически, вызывая обработку всех небесных тел,
     а также обновляя их положение на экране.
     Цикличность выполнения зависит от значения глобальной переменной perform_execution.
     При perform_execution == True функция запрашивает вызов самой себя по таймеру через от 1 мс до 100 мс.
     """
+
     global physical_time
     global displayed_time
     recalculate_space_objects_positions(space_objects, time_step.get())
     for body in space_objects:
         update_object_position(space, body)
+    Ls.append(calculate_momentofpulse(space_objects[1], space_objects))
+    times.append(physical_time)
     physical_time += time_step.get()
     displayed_time.set("%.1f" % physical_time + " seconds gone")
 
@@ -111,6 +128,7 @@ def main():
     global space
     global start_button
 
+
     print('Modelling started!')
     physical_time = 0
 
@@ -147,5 +165,22 @@ def main():
     root.mainloop()
     print('Modelling finished!')
 
+
 if __name__ == "__main__":
     main()
+print('Рассчёт момента импульса для Земли')
+fig, ax = plt.subplots( figsize=(16, 9),dpi=100)
+x=np.array(times)
+y=np.array(Ls)
+if len(Ls)==0:
+    x=np.array([1,2])
+    y=np.array([2,4])
+z=np.polyfit(x,y,deg=1)
+y_est = z[0]*(x**1)+z[1]*(x**0)
+ax.scatter(x, y, marker='o')
+ax.plot(x,y_est, 'r', label=f'y = {round(z[0],2)}*x+{round(z[1],2)}')
+ax.set_xlabel('Time, с')
+ax.set_ylabel('Moment of pulse, $м^2$/с*кг',rotation=0, horizontalalignment='right')
+ax.grid()
+ax.legend()
+plt.show()

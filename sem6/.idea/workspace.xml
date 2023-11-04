@@ -5,28 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="07029375-87ec-488a-a3d0-4c497708c933" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sem6.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lesson2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task4.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task5.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sem7/lesson.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sem7/solar_visuals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sem7/task1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sem7/task2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sem7/task3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sem7/solar_physics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../sem7/solar_read.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sem4/task5.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sem4/task5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sem4/task6.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sem4/task6.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sem7/lesson.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sem7/lesson.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sem7/solar_visuals.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sem7/solar_visuals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sem7/task1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sem7/task1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sem7/task2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sem7/task2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sem7/task3.py" beforeDir="false" afterPath="$PROJECT_DIR$/../sem7/task3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../template/graficsPlot.py" beforeDir="false" afterPath="$PROJECT_DIR$/../template/graficsPlot.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,14 +41,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/user/Desktop/DanFiz/sem7/task3.py"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/DanFiz/sem7/task3.py&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

@@ -1,5 +1,4 @@
 from random import randint
-
 gravitational_constant = 6.67408E-11
 """Гравитационная постоянная Ньютона G"""
 
@@ -137,6 +136,7 @@ def recalculate_space_objects_positions(space_objects, dt):
         calculate_force(body, space_objects)
     for body in space_objects:
         move_space_object(body, dt)
+
 
 
 if __name__ == "__main__":
